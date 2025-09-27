@@ -1,0 +1,16 @@
+{
+  "name": "Mapeador de Switch",
+  "short_name": "MapSwitch",
+  "description": "Um aplicativo para mapear e gerenciar portas de switch de rede.",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#f0f2f5",
+  "theme_color": "#1a2b4c",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ]
+}

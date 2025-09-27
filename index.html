@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapeamento de Portas do Switch</title>
+    
+    <!-- LIGAÇÃO COM O MANIFEST -->
+    <link rel="manifest" href="manifest.json">
+    
+    <!-- COR DO TEMA PARA NAVEGADORES MOBILE -->
+    <meta name="theme-color" content="#1a2b4c">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Mapeador de Switch 24 Portas</h1>
+    <div id="switch-container" class="switch-container"></div>
+
+    <!-- Modal de EDIÇÃO (Admin) -->
+    <div id="edit-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" id="close-edit">&times;</span>
+            <h2 id="edit-modal-title">Configurar Porta</h2>
+            <form id="port-form">
+                <input type="hidden" id="port-id-input">
+                <label for="cable-id">Identificação do Cabo:</label>
+                <input type="text" id="cable-id" name="cable-id" placeholder="Ex: Mesa_Joao_PC">
+                <label for="client-name">Cliente:</label>
+                <input type="text" id="client-name" name="client-name" placeholder="Ex: Empresa ABC">
+                <label for="install-date">Data de Instalação:</label>
+                <input type="date" id="install-date" name="install-date">
+                <label for="notes">Observações:</label>
+                <textarea id="notes" name="notes" rows="3" placeholder="Ex: Ponto de rede para impressora"></textarea>
+                <button type="submit">Salvar</button>
+                <button type="button" id="clear-port-data">Limpar Dados da Porta</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal de VISUALIZAÇÃO (Usuário) -->
+    <div id="view-modal" class="modal">
+        <div class="modal-content view-content">
+            <span class="close-button" id="close-view">&times;</span>
+            <h2 id="view-modal-title">Informações da Porta</h2>
+            <div id="view-info"></div>
+            <button type="button" id="edit-button">Editar</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+
+    <!-- REGISTRO DO SERVICE WORKER -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./sw.js')
+                    .then(registration => {
+                        console.log('Service Worker registrado com sucesso:', registration.scope);
+                    })
+                    .catch(err => {
+                        console.log('Falha no registro do Service Worker:', err);
+                    });
+            });
+        }
+    </script>
+</body>
+</html>

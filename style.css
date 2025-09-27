@@ -1,0 +1,168 @@
+body {
+    font-family: sans-serif;
+    background-color: #f0f2f5;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    color: #1a2b4c;
+}
+
+.switch-container {
+    background-color: #333;
+    border: 2px solid #555;
+    border-radius: 8px;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr); /* 12 portas por linha */
+    gap: 15px;
+    width: 90%;
+    max-width: 1000px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.port {
+    background-color: #777;
+    border: 2px solid #999;
+    border-radius: 4px;
+    aspect-ratio: 1 / 1; /* Mantém o formato quadrado */
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.port:hover {
+    background-color: #999;
+    border-color: #bbb;
+}
+
+.port.configured {
+    background-color: #28a745; /* Verde para porta configurada */
+    border-color: #208335;
+}
+
+/* Estilos do Modal (Pop-up) */
+.modal {
+    display: none; /* Escondido por padrão */
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 10% auto;
+    padding: 25px;
+    border: 1px solid #888;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 500px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.close-button {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-button:hover {
+    color: #333;
+}
+
+/* Estilos do Formulário */
+#port-form label {
+    display: block;
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+#port-form input, #port-form textarea {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Garante que o padding não aumente a largura */
+}
+
+#port-form button {
+    background-color: #007bff;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    width: 100%;
+    font-size: 16px;
+}
+
+#port-form button:hover {
+    background-color: #0056b3;
+}
+
+/* Estilo para o botão de limpar */
+#clear-port-data {
+    background-color: #dc3545; /* Vermelho */
+    margin-top: 10px;
+}
+
+#clear-port-data:hover {
+    background-color: #c82333;
+}
+
+/* Estilos para o pop-up de visualização */
+.view-content {
+    max-width: 400px; /* Um pouco menor */
+}
+
+#view-info p {
+    background-color: #f9f9f9;
+    border-left: 4px solid #007bff;
+    padding: 10px;
+    margin: 10px 0;
+    font-size: 16px;
+}
+
+#view-info p strong {
+    display: block;
+    color: #555;
+    font-size: 14px;
+    margin-bottom: 4px;
+}
+
+/* Estilo para o botão de editar no pop-up de visualização */
+#edit-button {
+    background-color: #ffc107; /* Amarelo */
+    color: #212529;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 15px;
+    width: 100%;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+#edit-button:hover {
+    background-color: #e0a800;
+}
